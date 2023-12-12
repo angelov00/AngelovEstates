@@ -6,7 +6,6 @@ import com.softuni.angelovestates.model.DTO.OfferAddDTO;
 import com.softuni.angelovestates.model.DTO.OfferSearchDTO;
 import com.softuni.angelovestates.exception.OfferNotFoundException;
 import com.softuni.angelovestates.service.OfferService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

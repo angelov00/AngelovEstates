@@ -4,7 +4,6 @@ import com.softuni.angelovestates.repository.UserRepository;
 //import com.softuni.angelovestates.service.ApplicationUserDetailsService;
 import com.softuni.angelovestates.service.ApplicationUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.reactive.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -58,8 +57,8 @@ public class SecurityConfiguration {
                     .clearAuthentication(true)
                     .deleteCookies("JSESSIONID")
                 .permitAll()
-                .and().headers().contentTypeOptions().disable();
-                //.and().csrf().disable();
+                .and().headers().contentTypeOptions().disable()
+                .and().csrf().disable();
 
         return http.build();
     }

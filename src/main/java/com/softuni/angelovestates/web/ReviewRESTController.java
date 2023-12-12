@@ -1,7 +1,6 @@
 package com.softuni.angelovestates.web;
 
 import com.softuni.angelovestates.model.DAO.ReviewDAO;
-import com.softuni.angelovestates.model.entity.Review;
 import com.softuni.angelovestates.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

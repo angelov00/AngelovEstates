@@ -1,17 +1,12 @@
 package com.softuni.angelovestates.model.DTO;
 
-import com.softuni.angelovestates.model.enums.OfferTypeEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
 import javax.validation.constraints.*;
-import java.io.File;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Getter

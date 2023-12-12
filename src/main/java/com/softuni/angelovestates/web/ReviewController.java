@@ -1,11 +1,9 @@
 package com.softuni.angelovestates.web;
 
 import com.softuni.angelovestates.model.DTO.ReviewAddDTO;
-import com.softuni.angelovestates.model.entity.Review;
 import com.softuni.angelovestates.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.security.Principal;
 
 @Controller
 @RequestMapping("/reviews")
