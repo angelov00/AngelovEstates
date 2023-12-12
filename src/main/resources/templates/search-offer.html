@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body th:style="'background-image:url(' + @{/images/background.jpg} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+<header th:replace="/fragments/header"></header>
+
+<div class="container mt-4" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px)">
+    <form th:action="@{/offers/search/result}" th:method="post" th:object="${offerSearchDTO}" class="needs-validation" novalidate>
+
+        <div class="form-row">
+            <div class="col-md-3 mb-3">
+                <label for="offerType">Offer Type:</label>
+                <select id="offerType" name="offerType" class="custom-select" required>
+                    <option th:each="type : ${T(com.softuni.angelovestates.model.enums.OfferTypeEnum).values()}"
+                            th:value="${type}" th:text="${type.getDisplayValue()}"></option>
+                </select>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="minPrice">Min Price:</label>
+                <input type="number" id="minPrice" name="minPrice" th:field="*{minPrice}" class="form-control">
+                <small th:if="${#fields.hasErrors('minPrice')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="maxPrice">Max Price:</label>
+                <input type="number" id="maxPrice" name="maxPrice" th:field="*{maxPrice}" class="form-control">
+                <small th:if="${#fields.hasErrors('maxPrice')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="minSize">Min Size:</label>
+                <input type="number" id="minSize" name="minSize" th:field="*{minSize}" class="form-control">
+                <small th:if="${#fields.hasErrors('minSize')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="maxSize">Max Size:</label>
+                <input type="number" id="maxSize" name="maxSize" th:field="*{maxSize}" class="form-control">
+                <small th:if="${#fields.hasErrors('maxSize')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="minRooms">Min Rooms:</label>
+                <input type="number" id="minRooms" name="minRooms" th:field="*{minRooms}" class="form-control">
+                <small th:if="${#fields.hasErrors('minRooms')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="maxRooms">Max Rooms:</label>
+                <input type="number" id="maxRooms" name="maxRooms" th:field="*{maxRooms}" class="form-control">
+                <small th:if="${#fields.hasErrors('maxRooms')}" class="text-danger">Invalid email.</small>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="province">Province:</label>
+                <input type="text" id="province" name="province" th:field="*{province}" class="form-control">
+                <small th:if="${#fields.hasErrors('province')}" class="text-danger">Invalid email.</small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div id="map" style="height: 550px; width: 50%; margin-left: auto; margin-right: auto;"></div>
+
+<footer th:replace="/fragments/footer.html"></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript" th:src="@{/js/map.js}"></script>
+</body>
+</html>

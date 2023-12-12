@@ -1,0 +1,45 @@
+logging:
+  level:
+    blog: WARN
+    org: WARN
+    org.hibernate.SQL: DEBUG
+    com.cloudinary: DEBUG
+server:
+  port: 8888
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: admin
+    url: jdbc:mysql://localhost:3306/angelov_estates?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        show_sql: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    async:
+      request-timeout:
+  web:
+    resources:
+      add-mappings: true
+
+#Mail sender
+mail:
+  host: "smtp.gmail.com"
+  port: 587
+  username: "angelov.estates@gmail.com"
+  password: "fhjp raje pnsm zyal"
+
+#Cloudinary
+cloudinary:
+  cloudName: "dyfbmcq8q"
+  apiKey: "727437445487986"
+  apiSecret: "MfIa3impmr3bVDmAWU1J05rEuzc"
+

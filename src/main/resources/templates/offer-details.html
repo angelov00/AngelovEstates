@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Offer Details</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+<header th:replace="/fragments/header"></header>
+
+<div class="container mt-4">
+    <div class="offer-details bg-light p-4 rounded">
+        <h2 th:text="${offer.title}" class="mb-4 text-primary">Offer Title</h2>
+        <!-- Display other offer details -->
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Type:</strong> <span th:text="${offer.offerType}">Offer Type</span></p>
+                <p><strong>Price:</strong> <span th:text="${offer.price}">Price</span></p>
+                <p><strong>Address:</strong> <span th:text="${offer.address}">Address</span></p>
+                <p><strong>Province:</strong> <span th:text="${offer.province}">Province</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Size:</strong> <span th:text="${offer.size}">Size</span></p>
+                <p><strong>Rooms:</strong> <span th:text="${offer.rooms}">Rooms</span></p>
+                <p><strong>Description:</strong> <span th:text="${offer.description}">Description</span></p>
+                <p><strong>Listed On:</strong> <span th:text="${offer.listedOn}">Listed On</span></p>
+            </div>
+        </div>
+
+        <!-- Display Seller details -->
+        <div th:if="${offer.seller}" class="mt-4">
+            <h3>Seller Information</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Seller Name:</strong> <span th:text="${offer.seller.toString()}">Seller Name</span></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Contact:</strong> <span th:text="${offer.seller.getPhoneNumber()}"></span></p>
+                </div>
+            </div>
+            <!-- Add more seller details as needed -->
+        </div>
+
+        <!-- Display photos -->
+        <div th:if="${offer.photoURLs}" class="mt-4">
+            <h3>Photos</h3>
+            <div class="row">
+                <div th:each="photoURL : ${offer.photoURLs}" class="col-md-4">
+                    <img th:src="${photoURL}" alt="Offer Photo" class="img-fluid mb-3 rounded" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="/fragments/footer.html"></footer>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

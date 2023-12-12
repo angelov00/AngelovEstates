@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Offers</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<header th:replace="fragments/header"></header>
+
+<div class="container mt-5" style="margin-bottom: 100px">
+    <h2 class="mb-4">My Offers:</h2>
+
+    <!-- Active Offers -->
+    <div th:if="${not #lists.isEmpty(offers)}">
+        <h4 class="mb-3">Active Offers:</h4>
+        <div class="row">
+            <div th:each="offer : ${offers}" class="col-md-4 mb-4">
+                <div class="card">
+                    <img th:src="@{${offer.photoUrl}}" alt="Offer Photo" class="card-img-top" style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${offer.title}"></h5>
+                        <p class="card-text">Price: <span th:text="${offer.price}"></span></p>
+                        <p class="card-text">Province: <span th:text="${offer.province}"></span></p>
+                        <p class="card-text">Size: <span th:text="${offer.size}"></span></p>
+                        <p class="card-text">Listed on: <span th:text="${offer.listedOn}"></span></p>
+                        <div class="btn-group" role="group">
+                            <a th:href="@{/offers/details/{id}(id=${offer.id})}" class="btn btn-primary text-white">See details</a>
+                            <a th:href="@{/offers/delete/{id}(id=${offer.id})}" class="btn btn-danger text-white">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expired Offers -->
+    <div th:if="${not #lists.isEmpty(expiredOffers)}">
+        <h4 class="mb-3">Inactive Offers:</h4>
+        <div class="row">
+            <div th:each="offer : ${expiredOffers}" class="col-md-4 mb-4">
+                <div class="card">
+                    <img th:src="@{${offer.photoUrl}}" alt="Offer Photo" class="card-img-top" style="max-height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${offer.title}"></h5>
+                        <p class="card-text">Price: <span th:text="${offer.price}"></span></p>
+                        <p class="card-text">Province: <span th:text="${offer.province}"></span></p>
+                        <p class="card-text">Size: <span th:text="${offer.size}"></span></p>
+                        <p class="card-text">Listed on: <span th:text="${offer.listedOn}"></span></p>
+                        <div class="btn-group" role="group">
+                            <a th:href="@{/offers/makeActive/{id}(id=${offer.id})}" class="btn btn-success text-white">Make Active</a>
+                            <a th:href="@{/offers/details/{id}(id=${offer.id})}" class="btn btn-primary text-white">See details</a>
+                            <a th:href="@{/offers/delete/{id}(id=${offer.id})}" class="btn btn-danger text-white">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Offers -->
+    <div th:if="${#lists.isEmpty(offers) && #lists.isEmpty(expiredOffers)}">
+        <div class="alert alert-info" role="alert">
+            You haven't listed any properties for sale! <a href="/offers/add">Add offer?</a>
+        </div>
+    </div>
+
+</div>
+
+<footer th:replace="fragments/footer.html"></footer>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

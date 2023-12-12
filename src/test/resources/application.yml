@@ -1,0 +1,37 @@
+#SPRING CONFIGURATION
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:demo
+    username: sa
+    password:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: H2Dialect
+        format_sql: true
+
+#LOGGING CONFIGURATION
+logging:
+  level:
+    org:
+      hibernate:
+        sql: info
+
+#Mail sender
+mail:
+  host: "smtp.gmail.com"
+  port: 587
+  username: "angelov.estates@gmail.com"
+  password: "fhjp raje pnsm zyal"
+
+#Cloudinary
+cloudinary:
+  cloudName: "dyfbmcq8q"
+  apiKey: "727437445487986"
+  apiSecret: "MfIa3impmr3bVDmAWU1J05rEuzc"
+
+
