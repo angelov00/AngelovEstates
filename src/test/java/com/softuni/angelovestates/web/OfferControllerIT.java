@@ -119,7 +119,7 @@ public class OfferControllerIT {
         mockMvc.perform(get("/offers/delete/{id}", offerId)
                         .contentType(MediaType.TEXT_HTML))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
+                .andExpect(redirectedUrl("/user/offers"));
     }
 
     @Test
@@ -131,6 +131,6 @@ public class OfferControllerIT {
         mockMvc.perform(get("/offers/makeActive/{id}", offerId)
                         .contentType(MediaType.TEXT_HTML))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/"));
+                .andExpect(redirectedUrl("/user/offers"));
     }
 }

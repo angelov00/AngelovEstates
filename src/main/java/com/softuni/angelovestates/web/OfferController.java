@@ -102,14 +102,14 @@ public class OfferController {
     @PreAuthorize("@offerService.isOfferOwner(authentication, #id)")
     public String makeActive(@PathVariable long id) {
         offerService.makeActive(id);
-        return "redirect:/";
+        return "redirect:/user/offers";
     }
 
     @GetMapping("/delete/{id}")
     @PreAuthorize("@offerService.isOfferOwner(authentication, #id)")
     public String deleteOffer(@PathVariable long id) {
         offerService.deleteOfferByID(id);
-        return "redirect:/";
+        return "redirect:/user/offers";
     }
 
     @ExceptionHandler(OfferNotFoundException.class)

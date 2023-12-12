@@ -231,9 +231,9 @@ public class InitDB {
                 .setListedOn(LocalDate.now())
                 .setIsExpired(false)
                 .setSeller(this.userRepository.findUserByEmail("user@gmail.com").get());
-        offer2.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375940/zaglav_gvwiuh.jpg");
-        offer2.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375952/60887_12457_IMG_04_0000_jzvadl.jpg");
-        offer2.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375953/60887_12457_IMG_05_0000_b7ujth.jpg");
+        offer6.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375940/zaglav_gvwiuh.jpg");
+        offer6.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375952/60887_12457_IMG_04_0000_jzvadl.jpg");
+        offer6.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701375953/60887_12457_IMG_05_0000_b7ujth.jpg");
 
         Offer offer7 = new Offer()
                 .setTitle("Luxurious family house")
@@ -247,8 +247,8 @@ public class InitDB {
                 .setListedOn(LocalDate.now())
                 .setIsExpired(false)
                 .setSeller(this.userRepository.findUserByEmail("user@gmail.com").get());
-        offer3.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376246/52214_VL3601_IMG_02_0000_ncwj80.jpg");
-        offer3.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376159/52214_VL3601_IMG_01_0000_wxxajd.jpg");
+        offer7.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376246/52214_VL3601_IMG_02_0000_ncwj80.jpg");
+        offer7.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376159/52214_VL3601_IMG_01_0000_wxxajd.jpg");
 
         Offer offer8 = new Offer()
                 .setTitle("Small cozy house")
@@ -262,8 +262,8 @@ public class InitDB {
                 .setListedOn(LocalDate.now())
                 .setIsExpired(false)
                 .setSeller(this.userRepository.findUserByEmail("user@gmail.com").get());
-        offer4.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376497/90247_SF2902_IMG_04_0000_c8ui74.jpg");
-        offer4.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376497/90247_SF2902_IMG_00_0000_tycrfa.jpg");
+        offer8.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376497/90247_SF2902_IMG_04_0000_c8ui74.jpg");
+        offer8.getPhotoURLs().add("https://res.cloudinary.com/dyfbmcq8q/image/upload/v1701376497/90247_SF2902_IMG_00_0000_tycrfa.jpg");
 
         this.offerRepository.saveAllAndFlush(List.of(offer1, offer2, offer3, offer4, offer5, offer6, offer7, offer8));
     }

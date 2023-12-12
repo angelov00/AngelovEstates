@@ -13,7 +13,7 @@
 
 <header th:replace="/fragments/header"> </header>
 
-<div class="container mt-4 p-3 mb-6 bg-light border">
+<div class="container mt-4 p-3 bg-light border" style="margin-bottom: 80px">
     <h2 class="mb-4 d-flex justify-content-center">Offer List</h2>
 
     <div th:if="${offers.isEmpty()}" class="alert alert-warning">
@@ -21,8 +21,8 @@
     </div>
 
     <div class="row">
-        <div th:each="offer : ${offers}" class="col-md-4 mb-4" border>
-            <div class="card" style="border: 1px">
+        <div th:each="offer : ${offers}" class="col-md-4 mb-12 border">
+            <div class="card mb-2" style="border: 1px">
                 <img th:src="@{${offer.photoUrl}}" alt="Offer Photo" class="card-img-top" style="max-height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title font-weight-bold" th:text="${offer.title}">Offer Title</h5>
@@ -35,7 +35,6 @@
             </div>
         </div>
     </div>
-
     <!-- Pagination controls -->
     <div th:if="${totalPages > 1}" class="mt-4">
         <ul class="pagination justify-content-center">
