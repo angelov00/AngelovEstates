@@ -1,5 +1,6 @@
 package com.softuni.angelovestates.model.DTO;
 
+import com.softuni.angelovestates.model.enums.OfferTypeEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +20,7 @@ public class OfferAddDTO {
     @Size(min = 3, max = 20)
     private String title;
 
-    private String offerType;
+    private OfferTypeEnum offerType;
 
     @NotNull
     @Min(1)

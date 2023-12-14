@@ -55,7 +55,7 @@ public class OfferService {
 
         Offer offer =
                 this.modelMapper.map(offerAddDTO0, Offer.class)
-                .setOfferType(this.offerTypeRepository.findByOfferType(OfferTypeEnum.valueOf(offerAddDTO0.getOfferType())))
+                .setOfferType(this.offerTypeRepository.findByOfferType(offerAddDTO0.getOfferType()))
                 .setIsExpired(false)
                 .setPhotoURLs(this.fileUploadService.uploadOfferPhotos(offerAddDTO0.getPhotos()))
                 .setListedOn(LocalDate.now())
